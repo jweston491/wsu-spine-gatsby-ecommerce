@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import StoreContext from '~/context/StoreContext'
-import { Wrapper } from './styles'
+import GridGenerator from '~/components/GridGenerator'
 
 const LineItem = props => {
   const { line_item } = props
@@ -29,19 +29,18 @@ const LineItem = props => {
   }
 
   return (
-    <Wrapper>
+    <GridGenerator layout="quarters" className="pad short">
       {variantImage}
       <p>
         {line_item.title}
         {`  `}
-        {line_item.variant.title === !'Default Title'
-          ? line_item.variant.title
-          : ''}
+        {console.log("Info:")}
+        {console.log(line_item.variant)}
+        {line_item.variant.title === !'Default Title' ? line_item.variant.title : ''}
       </p>
-      {selectedOptions}
-      {line_item.quantity}
+      <>Quantity: {line_item.quantity}</>
       <button onClick={handleRemove}>Remove</button>
-    </Wrapper>
+    </GridGenerator>
   )
 }
 

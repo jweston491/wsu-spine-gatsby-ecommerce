@@ -55,6 +55,11 @@ module.exports = {
         // much time was required to fetch and process the data.
         // Defaults to true.
         verbose: true,
+
+        // Set the API version you want to use. For a list of available API versions,
+        // see: https://help.shopify.com/en/api/storefront-api/reference/queryroot
+        // Defaults to 2019-07
+        apiVersion: "2020-04",
       },
     },
     {
@@ -71,6 +76,7 @@ module.exports = {
         respectDNT: true,
       },
     },
+    `gatsby-plugin-sass`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

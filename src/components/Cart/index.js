@@ -3,6 +3,10 @@ import React, { useContext } from 'react'
 import StoreContext from '~/context/StoreContext'
 import LineItem from './LineItem'
 
+import GridGenerator from '~/components/GridGenerator'
+
+import {Link} from 'gatsby'
+
 const Cart = () => {
   const {
     store: { checkout },
@@ -19,17 +23,24 @@ const Cart = () => {
 
   return (
     <div>
-      {line_items}
-      <h2>Subtotal</h2>
-      <p>$ {checkout.subtotalPrice}</p>
-      <br />
-      <h2>Taxes</h2>
-      <p>$ {checkout.totalTax}</p>
-      <br />
-      <h2>Total</h2>
-      <p>$ {checkout.totalPrice}</p>
-      <br />
-      <button onClick={handleCheckout} disabled={checkout.lineItems.length === 0}>Check out</button>
+      {line_items.length
+        ? line_items
+        : <>Cart is Empty! Return <Link to="/">Home.</Link></>
+      }
+      <GridGenerator layout="halves">
+        <>
+          <h2>Subtotal</h2>
+          <p>$ {checkout.subtotalPrice}</p><br/>
+          <h2>Taxes</h2>
+          <p>$ {checkout.totalTax}</p>
+        </>
+        <>
+          <h2>Total</h2>
+          <p>$ {checkout.totalPrice}</p>
+          <br/>
+          <button className="white-text crimson-back" onClick={handleCheckout} disabled={checkout.lineItems.length === 0}>Check out</button>
+        </>
+      </GridGenerator>
     </div>
   )
 }

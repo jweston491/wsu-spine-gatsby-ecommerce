@@ -1,0 +1,17 @@
+/* Custom styles here*/
+
+// Overwrite existing styles for nav so that it's easier to use Gatsby's <Link> module
+#spine {
+    li:not(.parent).dogeared > a {
+        color: #717171;
+        font-weight: normal;
+        &:hover {
+            cursor: pointer
+        }
+    }
+    nav.spine-sitenav ul li a.current {
+        color: #981e32;
+        font-weight: 700
+    }
+} 
+
